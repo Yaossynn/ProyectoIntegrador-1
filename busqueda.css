@@ -1,0 +1,602 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+.menu {
+    width: 100%;
+    background: #eceaff; /* fondo */
+    color: #525252;
+}
+
+nav {
+    background: white;
+    width: 100%;
+    padding: 10px 5%; /* Espaciado más ajustado */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.logo {
+    width: 150px; /* Ajusta el tamaño para pantallas más pequeñas */
+}
+
+.usuarios {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+nav ul {
+    width: 100%;
+    text-align: right;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 15px; /* Espaciado más pequeño */
+}
+
+nav ul li a {
+    color: black; /* letras */
+    text-decoration: none;
+}
+
+/* Submenú */
+.submenu {
+    position: absolute;
+    top: 100%;
+    right: 5%; /* Ajusta el espaciado */
+    width: 300px; /* Reduce el ancho en pantallas pequeñas */
+    max-height: 0px;
+    overflow: hidden;
+    transition: max-height 0.5s;
+    z-index: 1000; /* sobreponer la imagen */
+}
+
+.submenu.open-menu {
+    max-height: 400px;
+}
+
+.menus {
+    background: #fff;
+    padding: 20px;
+    margin: 10px;
+}
+
+.usuarioinfo {
+    display: flex;
+    align-items: center;
+}
+
+.usuarioinfo h3 {
+    font-weight: 500;
+}
+
+.usuarioinfo img {
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.menus hr {
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    margin: 15px 0 10px;
+}
+
+.menulink {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #525252;
+    margin: 12px 0;
+}
+
+.menulink p {
+    width: 100%;
+}
+
+.menulink img {
+    width: 40px;
+    background: #e5e5e5;
+    border-radius: 50%;
+    padding: 8px;
+    margin-right: 15px;
+}
+
+.menulink span {
+    font-size: 22px;
+    transition: transform 0.5s;
+}
+
+.menulink:hover span {
+    transform: translateX(5px);
+}
+
+.menulink:hover p {
+    font-weight: 600;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Cambia la dirección para pantallas pequeñas */
+        align-items: flex-start; /* Alinea a la izquierda */
+    }
+
+    .logo {
+        width: 100px; /* Ajusta el tamaño del logo */
+    }
+
+    nav ul {
+        text-align: left; /* Alinea los enlaces a la izquierda */
+        width: 100%; /* Ocupa el ancho completo */
+        margin-top: 10px; /* Añade un margen superior */
+    }
+
+    nav ul li {
+        margin: 5px 0; /* Espaciado vertical para los enlaces */
+    }
+
+    .submenu {
+        width: 80%; /* Ancho más ajustado en pantallas pequeñas */
+        right: 10%; /* Espacio desde la derecha */
+    }
+}
+
+@media (max-width: 480px) {
+    .usuarios {
+        width: 40px; /* Reduce el tamaño del icono de usuario */
+        height: 40px; /* Reduce el tamaño del icono de usuario */
+    }
+
+    .usuarioinfo img {
+        width: 50px; /* Reduce el tamaño de la imagen de usuario */
+    }
+
+    .menulink span {
+        font-size: 18px; /* Reduce el tamaño de la fuente en pantallas pequeñas */
+    }
+
+    .menulink img {
+        width: 30px; /* Reduce el tamaño del icono de menú */
+    }
+}
+
+/*--------------------------formulario de busqueda inicia-------------------------*/
+
+/* Estilo para el contenedor principal */
+.main-container {
+    display: flex; /* Utiliza flexbox */
+    flex-direction: row; /* Alinea los hijos en fila */
+    justify-content: space-between; /* Espacio entre elementos */
+}
+
+/* Estilo para la sección de filtros */
+.filter-section {
+    flex: 0 0 25%; /* Ocupa el 25% del ancho (ajusta según sea necesario) */
+}
+
+/* Estilo para la sección de resultados */
+.card-section {
+    flex: 1; /* Ocupa el espacio restante */
+    margin-left: 20px; /* Espacio entre filtros y resultados */
+}
+
+/* Estilo general para la sección de filtros */
+.filter-section {
+    background-color: #ffffff; /* Fondo blanco */
+    border: 1px solid #e0e0e0; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 20px; /* Espaciado interno */
+    margin-bottom: 10px;
+}
+
+/* Título de los filtros */
+.filter-title {
+    font-size: 1.5rem; /* Tamaño de fuente del título */
+    margin-bottom: 1.5rem; /* Espaciado inferior */
+    color: #333; /* Color del texto */
+    font-weight: bold; /* Negrita */
+}
+
+/* Estilo de los elementos de acordeón */
+.accordion-item {
+    margin-bottom: 1rem; /* Espaciado entre elementos */
+    
+}
+
+/* Estilo para etiquetas de checkboxes */
+.form-check-label {
+    margin-left: 0.5rem; /* Espaciado a la izquierda del texto */
+    font-size: 1rem; /* Tamaño de fuente */
+    color: #555; /* Color de texto */
+}
+
+/* Estilo de inputs de texto */
+.form-control {
+    border-radius: 4px; /* Bordes redondeados */
+    border: 1px solid #ccc; /* Borde gris */
+    padding: 10px; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño de fuente */
+}
+
+/* Estilo para el botón */
+.btn {
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    background-color: #dc3545; /* Color de fondo rojo */
+    color: white; /* Color de texto blanco */
+    padding: 10px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambiar cursor al pasar */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.btn:hover {
+    background-color: #c82333; /* Color de fondo rojo oscuro al pasar el cursor */
+}
+
+/* Estilo para checkboxes */
+.form-check-input {
+    margin-top: 0.3rem; /* Espaciado superior */
+}
+
+/* Espaciado entre grupos de elementos */
+.mb-3 {
+    margin-bottom: 1rem; /* Espaciado inferior */
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .filter-section {
+        padding: 15px; /* Ajustar padding en móviles */
+    }
+
+    .filter-title {
+        font-size: 1.25rem; /* Tamaño de fuente del título más pequeño */
+    }
+
+    .btn {
+        font-size: 0.9rem; /* Tamaño de fuente más pequeño en móviles */
+    }
+
+    .main-container {
+        flex-direction: column; /* Cambia a columna en móviles */
+    }
+
+    .filter-section {
+        margin-bottom: 20px; /* Espacio entre filtros y resultados */
+    }
+}
+
+
+.card {
+    border: 1px solid #e0e0e0; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    margin-bottom: 20px; /* Espacio inferior entre tarjetas */
+}
+
+/* Estilo para las imágenes de la tarjeta */
+.card img {
+    max-width: 100%; /* Asegura que la imagen no desborde la columna */
+    height: auto; /* Mantiene la relación de aspecto */
+}
+
+/* Estilo para los badges */
+.badge {
+    margin-right: 5px; /* Espaciado entre badges */
+}
+
+/* Espaciado y alineación para la columna de botones */
+.col-md-3.d-flex {
+    height: 100%; /* Asegura que los botones estén alineados verticalmente */
+}
+
+/* Estilos generales para los botones */
+.btn {
+    border-radius: 4px; /* Bordes redondeados */
+    font-size: 1rem; /* Tamaño de fuente */
+    background-color: #dc3545; /* Color de fondo rojo */
+    color: white; /* Color de texto blanco */
+    padding: 10px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cambia cursor al pasar */
+    transition: background-color 0.3s; /* Transición suave */
+    margin-top: 25px;
+}
+
+.btn:hover {
+    background-color: #c82333; /* Color de fondo rojo oscuro al pasar el cursor */
+}
+
+
+
+
+
+.form-range {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#precioValor {
+    font-weight: bold;
+}
+
+
+
+
+/*--------------------------formulario de busqueda fin-------------------------*/
+
+/*------------------------footer inicia----------------------------------------------*/
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+footer {
+    background: #ff6719; /* fondo footer */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footer-content {
+    flex: 1 1 200px;
+    margin: 10px;
+}
+
+h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 5px 0;
+    text-align: center;
+}
+
+.footer-content ul {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+.list li {
+    padding: 7px;
+    position: relative;
+}
+
+.list li::before {
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 100%;
+    width: 0;
+    height: 2px;
+    background: red;
+    transition: width 0.5s;
+}
+
+.list li:hover::before {
+    width: 70px;
+}
+
+.social-icons {
+    padding: 0;
+    text-align: center;
+}
+
+.social-icons li {
+    display: inline-block;
+    padding: 5px;
+}
+
+.social-icons i {
+    color: white;
+    font-size: 25px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+}
+
+.social-icons i:hover {
+    color: red; /* redes sociales */
+}
+
+.botton-bar {
+    background: white; /* fondo de derechos reservados */
+    text-align: center;
+    padding: 10px 0;
+    margin-top: 30px;
+}
+
+.botton-bar p {
+    color: #343434; /* letra de derechos reservados */
+    margin: 0;
+    font-size: 16px;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 800px) {
+    .footer-content {
+        flex: 1 1 100%;
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 600px) {
+    h3 {
+        font-size: 20px;
+    }
+
+    .social-icons i {
+        font-size: 20px;
+    }
+
+    .botton-bar p {
+        font-size: 14px;
+    }
+}
+
+/*--------------------modal--------------------------*/
+
+.modal {
+    display: none; /* Ocultar por defecto */
+    position: fixed;
+    z-index: 1000; /* Asegurarse de que esté encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar el modal */
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px; /* Ancho máximo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    color: black;
+}
+
+.close {
+    color: #aaa;
+    position: absolute; 
+    top: 10px; 
+    right: 15px; 
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/*-----------------------modal inicio---------------------*/
+.modal {
+    display: none; /* Ocultar por defecto */
+    position: fixed;
+    z-index: 1000; /* Asegurarse de que esté encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar el modal */
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px; /* Ancho máximo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    color: black;
+}
+
+
+.close {
+    color: #aaa;
+    position: absolute; 
+    top: 10px; 
+    right: 15px; 
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+.texto-importante {
+    font-size: 1.2em; /* Tamaño de fuente */
+    line-height: 1.6; /* Altura de línea para mayor legibilidad */
+    margin: 20px 0; /* Margen superior e inferior */
+    padding: 15px; /* Espacio interno */
+    background-color: #f9f9f9; /* Fondo claro para resaltar el texto */
+    border-left: 5px solid #ff6719; /* Línea a la izquierda para destacar */
+    color: #525252; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: justify; /* Justifica el texto */
+}
+
+
+.texto-importante img {
+    vertical-align: middle; 
+    width: 32px; 
+    height: 32px;
+    
+}
+
+
+
+/*-----------------------modal final---------------------*/

@@ -1,0 +1,348 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'popins',sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background:url('imagenes/imagenes2.png') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header{
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+padding: 20px 100px;
+/* background: red; */
+display: flex;
+justify-content: space-between;
+align-items: center;
+z-index: 99; 
+}
+
+
+
+
+.logo{
+font-size: 2em;
+color: #fff;
+user-select: none; /*no permite ser seleccionada ni marcado*/
+}
+
+.navegador a{
+    position: relative;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;    
+}
+
+.navegador a::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navegador a:hover::after{
+    transform-origin: left;
+    transform: scaleX(01);
+
+
+}
+
+
+.navegador .btnlogin{
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #fff;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1em;
+    color: #fff;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navegador .btnlogin:hover{
+    background: #fff;
+    color: #162938 ;
+}
+
+
+
+/*boton login*/
+
+.envolver{
+position: relative;
+width: 400px;
+height: 440px;
+background:transparent;
+border: 2px solid rgba(255, 255, 255, .5);
+border-radius:20px ;
+backdrop-filter: blur(20px);
+box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+display: flex;
+justify-content: center;
+align-items: center;
+overflow: hidden; 
+transform: scale(0);
+transition: transform .5s ease, height .2s ease;
+}
+
+.envolver.active-login { 
+    transform: scale(1);
+}
+
+.envolver.active{
+    height: 520px;
+}
+
+.envolver .boxlogin{
+    width: 100%;
+    padding: 40px;
+}
+
+/* .envolver .boxlogin{
+    display: none ;
+} */
+
+.envolver .boxlogin{
+    transition: transform .18s ease;
+    transform:translateX(0) ;
+}
+
+
+.envolver.active .boxlogin{
+    transition: none;
+    transform:translateX(-400px) ;
+}
+
+.envolver .boxregistrar{
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.envolver.active .boxregistrar{
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.envolver .icono-cerrar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: #162938;
+    font-size: 2em;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.boxlogin h2{
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+}
+
+.boxregistrar h2{
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+}
+
+.ingresobox{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+
+.ingresobox label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    font-weight: 500;
+    color: #162916;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.ingresobox input:focus~label,
+.ingresobox input:valid~label{
+    top: -5px;
+}
+
+
+
+.ingresobox input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color:#162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.ingresobox .icono{
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+
+
+
+.recordar{
+    font-size: .9em;
+    color:#162938;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;      
+}
+
+.recordar label input {
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+.recordar a{
+    color: #162938;
+    text-decoration: none; 
+}
+
+.recordar a:hover{
+    text-decoration: underline;
+}
+
+.btn{
+    width: 100%;
+    height: 45px;
+    background: #162938;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size:1em ;
+    color: #fff;
+    font-weight: 500;
+}
+
+
+.login-registro{
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-registro p a{
+    color: #162938;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-registro p a:hover{
+    text-decoration:underline ;
+}
+
+
+/*---------------------------modal inicio ----------------------*/
+
+.modal {
+    display: none; /* Ocultar por defecto */
+    position: fixed;
+    z-index: 1000; /* Asegurarse de que esté encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+}
+
+.contenido-modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrar el modal */
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px; /* Ancho máximo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    color: black;
+}
+
+.cerrar {
+    color: #aaa;
+    position: absolute; 
+    top: 10px; 
+    right: 15px; 
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.texto-importante {
+    font-size: 1.2em; /* Tamaño de fuente */
+    line-height: 1.6; /* Altura de línea para mayor legibilidad */
+    margin: 20px 0; /* Margen superior e inferior */
+    padding: 15px; /* Espacio interno */
+    background-color: #f9f9f9; /* Fondo claro para resaltar el texto */
+    border-left: 5px solid #ff6719; /* Línea a la izquierda para destacar */
+    color: #525252; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: justify; /* Justifica el texto */
+}
+
+.texto-importante img {
+    vertical-align: middle; 
+    width: 32px; 
+    height: 32px;
+}

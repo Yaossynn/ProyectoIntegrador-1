@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de inicio</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.movilbus.pe/wp-content/themes/movilbus/images/favicon.ico">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <img src="imagenes/logo.png" alt="">
+        <nav class="navegador">
+            <a href="#" onclick="abrirModal('modalInicio')">Inicio</a>
+            <a href="#" onclick="abrirModal('modalNosotros')">Nosotros</a>
+            <a href="#" onclick="abrirModal('modalServicios')">Servicios</a>
+            <a href="#" onclick="abrirModal('modalContactos')">Contactos</a>
+            <button class="btnlogin">Login</button>
+        </nav>
+    </header>
+    
+    <!-- Modales -->
+    <div id="modalInicio" class="modal">
+        <div class="contenido-modal">
+            <span class="cerrar" onclick="cerrarModal('modalInicio')">&times;</span>
+            
+            <p class="texto-importante"> Bienvenido al servicio de WebScraping de  Movilbus! </p>
+        </div>
+    </div>
+    
+    <div id="modalNosotros" class="modal">
+        <div class="contenido-modal">
+            <span class="cerrar" onclick="cerrarModal('modalNosotros')">&times;</span>
+            <h2>Nosotros</h2>
+            <p class="texto-importante"> Somos un grupo de estudiantes altamente calificados, que brindamos soluciones a procesos empresariales utilizando tecnología de vanguardia, 
+                implementando con éxito dichas soluciones y manteniendo un servicio centrado en la calidad y la excelencia.</p>
+        </div>
+    </div>
+    
+    <div id="modalServicios" class="modal">
+        <div class="contenido-modal">
+            <span class="cerrar" onclick="cerrarModal('modalServicios')">&times;</span>
+            <h2>Servicios</h2>
+            <p class="texto-importante">
+                <img src="imagenes/check.png" alt="Icono 1" >
+                &nbsp Analisar la competencia <br>
+                <br>
+                <img src="imagenes/check.png" alt="Icono 1" >
+                &nbsp Monitorear precios <br>
+                <br>
+                <img src="imagenes/check.png" alt="Icono 1" >
+                &nbsp Identificar tendencias <br>
+                <br>
+                <img src="imagenes/check.png" alt="Icono 1" >
+                &nbsp Toma de decisiones
+            </p>
+        </div>
+    </div>
+    
+    <div id="modalContactos" class="modal">
+        <div class="contenido-modal">
+            <span class="cerrar" onclick="cerrarModal('modalContactos')">&times;</span>
+            <h2>Contáctanos</h2>
+            <p class="texto-importante">
+                <img src="imagenes/audifonos.png" alt="Icono 1" >
+                &nbsp 956 986 610 <br>
+                <br>
+                <img src="imagenes/correo.png" alt="Icono 1" >
+                &nbsp soporte@utp.com.pe <br>
+                <br>
+                <img src="imagenes/calendario.png" alt="Icono 1" >
+                &nbsp Atencion Lun - vier 10:00am - 6:30pm <br>
+                <br>
+                <img src="imagenes/marcas.png" alt="Icono 1" >
+                &nbsp Calle San felipe Mz A lt 13
+            </p>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <div class="envolver">
+        <span class="icono-cerrar"><ion-icon name="close-outline"></ion-icon></span>
+
+        <div class="boxlogin">
+            <h2>Login</h2>
+            <form action="inicio.html">
+                <div class="ingresobox">
+                    <span class="icono"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" value="admin@gmail.com" required>
+                    <label>Email</label>
+                </div>
+                <div class="ingresobox">
+                    <span class="icono"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="Password" value="123456"  required>
+                    <label>Password</label>
+                </div>
+                <div class="recordar">
+                    <label><input type="checkbox">
+                    Recordarme
+                    </label>
+                    <a href="#">¿Olvidate tu Contraseña?</a>
+                </div>      
+                <button type="submit" class="btn">
+                    Login
+                </button>    
+                <div class="login-registro">
+                    <p>¿No tienes cuenta?<a href="#" class="registrolink">
+                      Registrarse    
+                    </a></p>
+
+                </div>         
+
+            </form>
+        </div>
+
+
+
+
+        <div class="boxregistrar">
+            <h2>Registrar</h2>
+            <form action="#">
+                
+                <div class="ingresobox">
+                    <span class="icono"> <ion-icon name="person"></ion-icon></span>
+                    <input type="text" required>
+                    <label>Nombre</label>
+                </div>                        
+              
+                <div class="ingresobox">
+                    <span class="icono"><ion-icon name="mail"></ion-icon></span>
+                    <input type="email" required>
+                    <label>Email</label>
+                </div>
+                <div class="ingresobox">
+                    <span class="icono"><ion-icon name="lock-closed"></ion-icon></span>
+                    <input type="Password" required>
+                    <label>Password</label>
+                </div>
+                <div class="recordar">
+                    <label><input type="checkbox">
+                    Acepto los terminos y condiciones</label>                   
+                </div>      
+                <button type="submit" class="btn">
+                    Registrar
+                </button>    
+                <div class="login-registro">
+                    <p>¿Ya tienes cuenta?<a href="#" class="loginlink">
+                      Login    
+                    </a></p>
+
+                </div>         
+
+            </form>
+        </div>
+
+        
+
+
+    </div>
+
+
+
+
+
+    <main></main>
+
+
+
+
+    <footer></footer>
+    <script src="index.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+
+</body>
+
+</html>
