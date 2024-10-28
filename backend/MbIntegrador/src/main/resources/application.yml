@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://LAPTOP-7EGBGGKJ:1433;databaseName=bd_movilwebscraping
+    username: sa
+    password: 47685710
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  datasource.hikari.maximum-pool-size: 10
